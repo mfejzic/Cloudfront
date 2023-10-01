@@ -1,0 +1,2 @@
+** Create cache invalidation **
+aws cloudfront create-invalidation --distribution-id E2SFVGKBA4HS41  --paths "/index.html" 
