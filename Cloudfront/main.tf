@@ -12,10 +12,9 @@ resource "aws_s3_bucket_public_access_block" "site_origin" {
   restrict_public_buckets = false 
 }
 
-# Encrypt bucket objects
+# Encrypt bucket objects/ use AES256 for each bucket
 resource "aws_s3_bucket_server_side_encryption_configuration" "site_origin" {
   bucket = aws_s3_bucket.site_origin.bucket
-  # Use AES256 encryption for each object
   rule {
     apply_server_side_encryption_by_default {
       sse_algorithm = "AES256"
@@ -46,13 +45,12 @@ resource "aws_s3_object" "content" {
 
 
 # Add jpg folder inside bucket/ upload jpg files using commands in terminal
-resource "aws_s3_object" "jpg" { // create object after creating bucket
+resource "aws_s3_object" "jpg" { 
   depends_on = [
     aws_s3_bucket.site_origin
   ]
   bucket                 = aws_s3_bucket.site_origin.bucket
   key                    = "jpg/"
-  //source                 = "jpg/"
   server_side_encryption = "AES256"
   content_type           = "image/jpeg" 
 }
