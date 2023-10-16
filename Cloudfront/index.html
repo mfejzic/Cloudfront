@@ -1,2 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>mfejzic portfolio</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f0f0;
+            }
+    
+            header {
+                text-align: center;
+                background-color: #0eaf08;
+                color: white;
+                padding: 20px 0;
+            }
+    
+            h1 {
+                margin: 0;
+            }
+    
+            .header-links {
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+            }
+    
+            .header-links a {
+                color: #666;
+                margin: 0 10px;
+                text-decoration: none;
+            }
+    
+            .container {
+                text-align: center;
+                padding: 20px;
+            }
+    
+            .image-box {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin: 20px 0;
+                border-top: 1px solid #333;
+                padding: 20px 0;
+            }
+    
+            .image {
+                width: 100%;
+                max-width: 400px;
+            }
 
-<font size="25">Welcome!</font>
+            /* CSS for horizontal alignment of images */
+            .horizontal-images {
+                display: flex;
+            }
+
+            .toi-image {
+                width: 50%; /* Reduce the width to make the images half their size */
+            }
+    
+            .description {
+                background-color: #f2f2f2;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Welcome!</h1>
+            <div class="header-links">
+                <a href="https://github.com/Muhazic" target="_blank">GitHub</a>
+                <span>|</span>
+                <a href="https://www.linkedin.com/in/mfejzic/" target="_blank">LinkedIn</a>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="image-box">
+                <a href="https://github.com/Muhazic/Cloudnet/tree/main/Cloudnet" target="_blank">
+                    <img src="jpg/cloudnetOF.jpg" alt="Project 1">
+                </a>
+                <div class="description">Using Terraform, I established a resilient infrastructure with Route 53 routing to an Application Load Balancer, directing traffic to a private instance hosting a dynamic website and linked to an S3 bucket. AWS IAM ensured secure resource management, while CloudWatch monitored S3 operations with SNS alerts. A bastion host in the public subnet enabled secure SSH access, and agent forwarding allowed key passage. The multi-region, multi-AZ design, route tables, NAT gateways, and NACLs ensured robustness. This project highlights my Terraform expertise, emphasis on security, and architecture's resilience.</div>
+            </div>
+
+            <div class="image-box">
+                <a href="https://github.com/Muhazic/Cloudfront/tree/main/Cloudfront" target="_blank">
+                    <img src="jpg/cloudfront(1).jpg" alt="Project 2">
+                </a>
+                <div class="description">I implemented a resilient architecture using AWS Route 53 with a failover policy to intelligently route traffic to Amazon CloudFront. CloudFront efficiently serves my static website content stored in Amazon S3, enhancing content delivery and reducing latency. Additionally, I ensured data security and privacy by configuring CloudFront with AWS Certificate Manager (ACM).</div>
+            </div>
+
+            <div class="image-box">
+                <img src="jpg/Serverless.jpg" alt="Project 3">
+                <div class="description">Coming soon!</div>
+            </div>
+
+
+            
+            <div class="image-box">
+                <a href="https://github.com/Muhazic/Data-Structures/blob/main/GameFinal/RunGame.java" target="_blank">
+                    <div class="horizontal-images">
+                        <img class="jpg/toi2.png" src="jpg/toi.png" alt="Project 4">
+                        <img class="jpg/toi1.png" src="jpg/toi2.png" alt="Project 4">
+                    </div>
+                </a>
+                <div class="description">This Java program offers an interactive experience for playing Tower of Hanoi. The code prompts the user to specify the number of disks to be used in the game and calculates the minimum number of moves required to solve the puzzle efficiently. It employs an array of stack data structures to represent the three towers, enforcing the rules of the game and allowing the user to move disks between towers. After each move, the program visually displays the current state of the towers, illustrating the arrangement of disks and the number of moves made. The game continues until the user successfully transfers all disks to a different tower, at which point it announces the total number of moves taken to accomplish the task.</div>
+            </div>
+
+            <div class="image-box">
+                <a href="path-to-your-resume.pdf" target="_blank">
+                    <img src="jpg/resume.jpg" alt="Your Resume">
+                </a>
+                <div class "description">View my resume</div>
+            </div>
+        </div>
+    </body>
+</html>
