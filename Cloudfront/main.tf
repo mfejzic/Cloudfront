@@ -43,7 +43,6 @@ resource "aws_s3_object" "content" {
   content_type           = "text/html" 
 }
 
-
 # Add jpg folder inside bucket/ upload jpg files using commands in terminal
 resource "aws_s3_object" "jpg" { 
   depends_on = [
@@ -190,6 +189,7 @@ resource "aws_route53_health_check" "primary" {
     Name = "primary_health_check"
   }
 }
+
 resource "aws_route53_health_check" "secondary" {
   fqdn              = "www.${data.aws_route53_zone.hosted_zone.name}"
   port              = 443
