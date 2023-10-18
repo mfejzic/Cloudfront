@@ -3,3 +3,6 @@ aws cloudfront create-invalidation --distribution-id E2SFVGKBA4HS41  --paths "/i
 
 ** Upload jpg files to s3 **
 aws s3 sync jpg/ s3://host-website-mf37/jpg/
+
+** Delete all files in s3**
+aws s3 rm s3://host-website-mf37/ --recursive
