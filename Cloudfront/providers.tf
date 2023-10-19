@@ -6,12 +6,10 @@ terraform {
       version = "~> 5.13.1"
     }
   }
-  backend "remote" {
-    hostname     = "app.terraform.io"
-    organization = "default-mf"
-    workspaces {
-      name = "Cloudfront"
-    }
+  backend "s3" {
+    bucket = "terraform-state-file-mf37" // tf state will be stored here
+    key    = "cloudfront/infra"
+    region = "us-east-1"
   }
 }
 
@@ -23,7 +21,7 @@ backend "remote" {
     hostname     = "app.terraform.io"
     organization = "default-mf"
     workspaces {
-      name = "workspace1"
+      name = "Cloudfront"
     }
   }
   
@@ -32,7 +30,7 @@ Swtich to s3 backend
 
 backend "s3" {
     bucket = "terraform-state-file-mf37" // tf state will be stored here
-    key    = "web_host/resume/s3_cdn/infra"
+    key    = "cloudnet/infra"
     region = "us-east-1"
   }
 
