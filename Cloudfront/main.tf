@@ -43,6 +43,7 @@ resource "aws_s3_object" "content" {
   content_type           = "text/html" 
 }
 
+
 # Add jpg folder inside bucket/ upload jpg files using commands in terminal
 resource "aws_s3_object" "jpg" { 
   depends_on = [
@@ -85,9 +86,9 @@ resource "aws_cloudfront_distribution" "site_access" {
     cached_methods         = ["GET", "HEAD"]
     target_origin_id       = aws_s3_bucket.site_origin.id
     viewer_protocol_policy = "redirect-to-https" 
-    min_ttl                = 10
-    default_ttl            = 30
-    max_ttl                = 60
+    min_ttl                = 2                             # 10 keep following for production
+    default_ttl            = 6                             # 30
+    max_ttl                = 10                            # 60
 
     forwarded_values {
       query_string = false
@@ -109,6 +110,7 @@ resource "aws_cloudfront_distribution" "site_access" {
       restriction_type = "whitelist"
       locations        = ["US", "CA"]
     }
+    
   }
 
   # Add tls certificate from acm console
@@ -189,7 +191,6 @@ resource "aws_route53_health_check" "primary" {
     Name = "primary_health_check"
   }
 }
-
 resource "aws_route53_health_check" "secondary" {
   fqdn              = "www.${data.aws_route53_zone.hosted_zone.name}"
   port              = 443
